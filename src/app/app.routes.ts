@@ -4,6 +4,7 @@ import { NosotrosPageComponent } from './pages/nosotros-page/nosotros-page.compo
 import { ContactanosPageComponent } from './pages/contactanos-page/contactanos-page.component';
 import { ServiciosPageComponent } from './pages/servicios-page/servicios-page.component';
 
+
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'nosotros', component: NosotrosPageComponent },
