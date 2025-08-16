@@ -1,0 +1,60 @@
+<section class="hero-container relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <div class="parallax-bg absolute inset-0" [style.transform]="'translateY(' + (scrollY * 0.5) + 'px)'">
+        <img src="assets/image/bg.png" alt="Background Image"
+            class="w-full h-full object-cover object-center scale-110" />
+    </div>
+    <div class="absolute inset-0 gradient-overlay"></div>
+
+    <div class="particles-container absolute inset-0">
+        <div class="particle" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]" [style.animation-delay]="(i * 0.5) + 's'">
+        </div>
+    </div>
+
+    <div class="hero-content relative z-10 text-center px-6 max-w-6xl mx-auto" [class.visible]="isVisible">
+
+        <div class="hero-pretitle mb-4">
+            <span class="text-orange-500 font-semibold text-lg md:text-xl tracking-wide uppercase">
+                Bienvenido a Fortader Gym
+            </span>
+        </div>
+        <h1 class="hero-title text-white font-extrabold mb-6 leading-tight">
+            <span class="typewriter-text">{{ typewriterText }}</span>
+            <span class="cursor" [class.blink]="isTyping">|</span>
+        </h1>
+        <p class="hero-subtitle text-gray-200 text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+            Únete a la comunidad fitness más grande de la ciudad. Entrena con los mejores equipos,
+            instructores certificados y alcanza tus objetivos más rápido que nunca.
+        </p>
+        <div class="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <a routerLink="/suscripcion"
+                class="cta-primary group relative overflow-hidden bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer inline-block">
+                <span class="relative z-10 flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                    Comienza Ahora
+                </span>
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+            </a>
+        </div>
+        <div class="hero-stats grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <div class="stat-item text-center" *ngFor="let stat of stats">
+                <div class="stat-number text-3xl md:text-4xl font-bold text-orange-500 mb-2">
+                    {{ stat.current }}{{ stat.suffix }}
+                </div>
+                <div class="stat-label text-gray-300 text-sm md:text-base uppercase tracking-wide">
+                    {{ stat.label }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="geometric-shapes absolute inset-0 pointer-events-none">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+</section>
