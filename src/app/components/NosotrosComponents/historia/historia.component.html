@@ -1,0 +1,115 @@
+
+<section #sectionRef class="relative py-20 md:py-32 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+  
+  
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-orange-600/5"></div>
+    <div class="absolute top-10 right-10 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-10 w-48 h-48 bg-orange-600/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 container mx-auto px-6">
+    
+    
+    <div class="text-center mb-16" [class.animate-fade-in-up]="titleVisible">
+      <span class="inline-block px-6 py-3 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 font-semibold text-sm uppercase tracking-wider backdrop-blur-sm mb-6">
+        Nuestra Historia
+      </span>
+      
+      <h2 class="text-5xl md:text-6xl font-black text-white mb-6">
+        <span class="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+          El Camino de
+        </span>
+        <br>
+        <span class="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+          Fortader Gym
+        </span>
+      </h2>
+      
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        Desde nuestros humildes inicios hasta convertirnos en referente del fitness en Quito. 
+        Conoce los momentos clave que han definido nuestra evolución.
+      </p>
+    </div>
+
+    
+    <div class="relative max-w-6xl mx-auto" [class.animate-fade-in-up]="timelineVisible">
+      
+      
+      <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-orange-500 via-orange-400 to-orange-500 opacity-30"></div>
+      
+      
+      <div class="space-y-16">
+        <div *ngFor="let event of timelineEvents; let i = index; let isOdd = odd" 
+             class="relative flex items-center"
+             [class.flex-row-reverse]="isOdd"
+             [class.timeline-item]="true"
+             [style.animation-delay]="(i * 100) + 'ms'">
+          
+          
+          <div class="w-5/12 p-6 bg-black/50 backdrop-blur-md border border-white/10 rounded-2xl hover:border-orange-500/30 transition-all duration-300 hover:scale-105"
+               [class.ml-auto]="!isOdd"
+               [class.mr-auto]="isOdd">
+            
+            
+            <div class="inline-block px-4 py-2 bg-orange-500/20 border border-orange-500/40 rounded-full text-orange-400 font-bold text-sm mb-4">
+              {{ event.year }}
+            </div>
+            
+            
+            <h3 class="text-2xl font-bold text-white mb-3">
+              {{ event.title }}
+            </h3>
+            
+            
+            <p class="text-gray-300 leading-relaxed">
+              {{ event.description }}
+            </p>
+            
+            
+            <div *ngIf="event.milestone" class="mt-4">
+              <span class="inline-flex items-center gap-2 px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 text-sm font-semibold">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                Hito Importante
+              </span>
+            </div>
+          </div>
+          
+          
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-orange-500 bg-black z-10"
+               [class.bg-orange-500]="event.milestone"
+               [class.shadow-lg]="event.milestone"
+               [ngClass]="{ 'shadow-orange-500/50': event.milestone }">
+            
+            
+            <div *ngIf="event.milestone" class="absolute inset-0 rounded-full bg-orange-500 animate-ping opacity-75"></div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="text-center mt-20" [class.animate-fade-in-up]="timelineVisible">
+      <div class="inline-block p-8 bg-gradient-to-br from-orange-500/10 to-orange-600/10 border border-orange-500/20 rounded-3xl backdrop-blur-sm">
+        <h3 class="text-3xl font-bold text-white mb-4">
+          Sé Parte de Nuestra Historia
+        </h3>
+        <p class="text-gray-300 mb-6 max-w-md mx-auto">
+          Únete a miles de personas que ya han transformado sus vidas con nosotros.
+        </p>
+        <a routerLink="/suscripcion" class="group px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 cursor-pointer inline-block">
+          <span class="flex items-center justify-center gap-3">
+            Comienza tu transformación
+            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>

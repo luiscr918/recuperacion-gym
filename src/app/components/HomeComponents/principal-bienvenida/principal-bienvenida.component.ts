@@ -58,7 +58,7 @@ export class PrincipalBienvenidaComponent implements OnInit, AfterViewInit  {
       color: 'from-orange-400 to-orange-600'
     },
     {
-      number: 15,
+      number: 3,
       suffix: '+',
       label: 'Años de Experiencia',
       current: 0,

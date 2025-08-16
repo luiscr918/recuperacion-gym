@@ -1,0 +1,109 @@
+
+<section #sectionRef class="relative py-20 md:py-32 bg-gradient-to-b from-gray-900 via-black to-gray-900 overflow-hidden">
+  
+  
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-orange-600/5"></div>
+    <div class="absolute top-20 left-1/4 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-20 right-1/4 w-40 h-40 bg-orange-600/15 rounded-full blur-3xl animate-pulse" style="animation-delay: 3s;"></div>
+  </div>
+
+  <div class="relative z-10 container mx-auto px-6">
+    
+    
+    <div class="text-center mb-16" [class.animate-fade-in-up]="titleVisible">
+      <span class="inline-block px-6 py-3 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 font-semibold text-sm uppercase tracking-wider backdrop-blur-sm mb-6">
+        Nuestros Valores
+      </span>
+      
+      <h2 class="text-5xl md:text-6xl font-black text-white mb-6">
+        <span class="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+          Lo Que Nos
+        </span>
+        <br>
+        <span class="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+          Define
+        </span>
+      </h2>
+      
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        Estos valores fundamentales guían cada decisión que tomamos y cada servicio que ofrecemos. 
+        Son la base de nuestra cultura y el motor de nuestro crecimiento.
+      </p>
+    </div>
+
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto" 
+         [class.animate-fade-in-up]="valuesVisible">
+      
+      <div *ngFor="let value of values; let i = index" 
+           class="group relative p-8 bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl hover:border-orange-500/30 transition-all duration-500 hover:scale-105 hover:bg-black/60"
+           [style.animation-delay]="(i * 100) + 'ms'">
+        
+        
+        <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-orange-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        
+        <div class="relative z-10">
+          
+          
+          <div class="mb-6">
+            <div class="w-16 h-16 bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-2xl flex items-center justify-center border border-orange-500/30 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="value.icon"></path>
+              </svg>
+            </div>
+          </div>
+          
+          
+          <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors duration-300">
+            {{ value.title }}
+          </h3>
+          
+          
+          <p class="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+            {{ value.description }}
+          </p>
+          
+          
+          <div class="mt-6 h-1 w-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full opacity-0 group-hover:opacity-100 group-hover:w-20 transition-all duration-500"></div>
+        </div>
+        
+        
+        <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+    </div>
+
+    
+    <div class="text-center mt-16" [class.animate-fade-in-up]="valuesVisible">
+      <div class="inline-block p-8 bg-gradient-to-br from-orange-500/10 to-orange-600/10 border border-orange-500/20 rounded-3xl backdrop-blur-sm">
+        <h3 class="text-3xl font-bold text-white mb-4">
+          Vive Nuestros Valores
+        </h3>
+        <p class="text-gray-300 mb-6 max-w-lg mx-auto">
+          Únete a una comunidad que comparte estos valores y experimenta la diferencia en cada entrenamiento.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button class="group px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105">
+            <span class="flex items-center justify-center gap-3">
+              Conoce nuestros planes
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </span>
+          </button>
+          
+          <button class="group px-8 py-4 border-2 border-white/20 text-white font-semibold rounded-full hover:border-orange-500 hover:text-orange-400 transition-all duration-300 backdrop-blur-sm">
+            <span class="flex items-center justify-center gap-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+              </svg>
+              Contáctanos
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

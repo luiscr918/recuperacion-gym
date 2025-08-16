@@ -25,8 +25,13 @@ export class HeroSectionComponent {
 
   stats = [
     { number: 500, label: 'Miembros Activos', suffix: '+', current: 0 },
-    { number: 5, label: 'Años de Experiencia', suffix: '+', current: 0 },
-    { number: 24, label: 'Horas Disponibles', suffix: '/7', current: 0 },
+    { number: 3, label: 'Años de Experiencia', suffix: '+', current: 0 },
+    {
+      number: 2,
+      label: 'Horas Disponibles',
+      suffix: 'horarios flexibles',
+      current: 0,
+    },
     { number: 95, label: 'Satisfacción', suffix: '%', current: 0 },
   ];
 
