@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<div class="mt-20">
+    <form class="max-w-md mx-auto mt-16 p-8 bg-black text-white rounded-xl shadow-lg space-y-4" (ngSubmit)="onSubmit()">
+        <h2 class="text-2xl font-bold text-orange-500 text-center mb-4">Registro de Usuario</h2>
+
+        <input type="text" name="nombre" placeholder="Nombre completo" [(ngModel)]="usuario.nombre" required
+            class="w-full p-2 rounded border border-orange-500 bg-black text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+
+        <input type="text" name="cedula" placeholder="Cédula" [(ngModel)]="usuario.cedula" required
+            class="w-full p-2 rounded border border-orange-500 bg-black text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+
+        <input type="email" name="email" placeholder="Email" [(ngModel)]="usuario.email" required
+            class="w-full p-2 rounded border border-orange-500 bg-black text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+
+        <input type="password" name="password" placeholder="Contraseña" [(ngModel)]="usuario.password" required
+            minlength="6"
+            class="w-full p-2 rounded border border-orange-500 bg-black text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+
+        <input type="number" name="peso" placeholder="Peso (kg)" [(ngModel)]="usuario.peso" required
+            class="w-full p-2 rounded border border-orange-500 bg-black text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+
+        <input type="number" name="altura" placeholder="Altura (m)" [(ngModel)]="usuario.altura" required step="0.01"
+            class="w-full p-2 rounded border border-orange-500 bg-black text-white focus:outline-none focus:ring-2 focus:ring-orange-500" />
+
+        <button type="submit"
+            class="w-full bg-orange-500 text-black font-bold py-2 rounded hover:bg-orange-600 transition-colors">
+            Registrarse
+        </button>
+
+        <p *ngIf="error" class="text-red-500 text-center">{{ error }}</p>
+    </form>
+</div>
+
+<app-footer></app-footer>

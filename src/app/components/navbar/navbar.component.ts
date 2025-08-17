@@ -7,13 +7,15 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
   standalone: true,
   imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-isMenuOpen = false;
+  isMenuOpen = false;
+  usuarioLogueado = false;
 
-
-  constructor( private router: Router) {
+  constructor(private router: Router) {
+    // Comprobar si hay usuario en localStorage
+    this.usuarioLogueado = !!localStorage.getItem('user');
   }
 
   toggleMenu() {
@@ -24,5 +26,9 @@ isMenuOpen = false;
     this.isMenuOpen = false;
   }
 
-
+  cerrarSesion() {
+    localStorage.removeItem('user');
+    this.usuarioLogueado = false;
+    this.router.navigateByUrl('/login');
+  }
 }
