@@ -88,4 +88,11 @@ export class UsuarioService {
         })
       );
   }
+  //actualizar el admin
+  actualizarAdmin(id: string, admin: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(
+      `${this.API_USUARIOS}/usuarios/${id}.json`,
+      admin
+    );
+  }
 }
