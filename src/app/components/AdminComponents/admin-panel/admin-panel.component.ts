@@ -33,7 +33,6 @@ export class AdminPanelComponent implements OnInit {
   ngOnInit(): void {
     this.usuarioService.leerUsuarios().subscribe({
       next: (usuariosMap) => {
-        // Convertimos el objeto de Firebase a un array
         this.clientes = Object.entries(usuariosMap || {}).map(([id, u]) => ({
           id,
           ...u,
@@ -45,7 +44,7 @@ export class AdminPanelComponent implements OnInit {
     });
   }
   eliminarCliente(id?: string) {
-    if (!id) return; // si es undefined, no hace nada
+    if (!id) return;
     if (!confirm('¿Estás seguro de eliminar este cliente?')) return;
 
     this.usuarioService.eliminarUsuario(id).subscribe({
